@@ -8,7 +8,7 @@ export function Header() {
       w="100%"
       maxWidth={1480}
       h="20"
-      mx="4"
+      mx="auto"
       mt="4"
       px="4"
       align="center"
@@ -81,6 +81,7 @@ export function Header() {
           <Avatar
             size="md"
             name="Vinicius Santos"
+            src="https://avatars.githubusercontent.com/u/43323955?v=4"
           />
         </Flex>
       </Flex>
