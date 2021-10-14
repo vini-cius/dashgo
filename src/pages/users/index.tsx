@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Heading, Icon, Text, Table, Thead, Tbody, Tr, Td, Th, Checkbox } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
+import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 export default function UserList() {
@@ -45,13 +46,13 @@ export default function UserList() {
               <Td px="6">
                 <Checkbox colorScheme="pink" />
               </Td>
-              <Td>
+              <Td whiteSpace="nowrap">
                 <Box>
                   <Text fontWeight="bold">Vinicius Santos</Text>
                   <Text fontSize="sm" color="gray.300">vinicius.santos@aztronic.com.br</Text>
                 </Box>
               </Td>
-              <Td>04 de Abril, 2021</Td>
+              <Td whiteSpace="nowrap">04 de Abril, 2021</Td>
               <Td>
                 <Button
                   as="a"
@@ -65,6 +66,8 @@ export default function UserList() {
               </Td>
             </Tbody>
           </Table>
+
+          <Pagination />
         </Box>
       </Flex>
     </Box>
