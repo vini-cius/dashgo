@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import { Flex, SimpleGrid, Box, Text, theme } from "@chakra-ui/react";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
@@ -59,26 +60,32 @@ const series = [
 
 export default function Dashboard() {
   return (
-    <Flex direction="column" h="100vh">
-      <Header />
+    <>
+      <Head>
+        <title>dashgo | Dashboard</title>
+      </Head>
 
-      <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
-        <Sidebar />
+      <Flex direction="column" h="100vh">
+        <Header />
 
-        <SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
-          <Box p="8" bg="gray.800" borderRadius={8} pb="4">
-            <Text fontSize="lg" mb="4">Inscritos da semana</Text>
+        <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
+          <Sidebar />
 
-            <Chart options={options} series={series} type="area" height={160} />
-          </Box>
+          <SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
+            <Box p="8" bg="gray.800" borderRadius={8} pb="4">
+              <Text fontSize="lg" mb="4">Inscritos da semana</Text>
 
-          <Box p="8" bg="gray.800" borderRadius={8} pb="4">
-            <Text fontSize="lg" mb="4">Taxa de abertura</Text>
+              <Chart options={options} series={series} type="area" height={160} />
+            </Box>
 
-            <Chart options={options} series={series} type="area" height={160} />
-          </Box>
-        </SimpleGrid>
+            <Box p="8" bg="gray.800" borderRadius={8} pb="4">
+              <Text fontSize="lg" mb="4">Taxa de abertura</Text>
+
+              <Chart options={options} series={series} type="area" height={160} />
+            </Box>
+          </SimpleGrid>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 }
