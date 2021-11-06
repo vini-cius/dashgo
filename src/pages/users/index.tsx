@@ -2,6 +2,7 @@ import { Box, Button, Flex, Heading, Icon, Text, Table, Thead, Tbody, Tr, Td, Th
 import Head from "next/head";
 import Link from "next/link";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
+import { useEffect } from "react";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
@@ -11,6 +12,12 @@ export default function UserList() {
     base: false,
     lg: true
   })
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/users').then(res => res.json()).then(data => {
+      console.log(data)
+    })
+  }, [])
 
   return (
     <>
@@ -58,31 +65,33 @@ export default function UserList() {
               </Thead>
 
               <Tbody>
-                <Td px={["4", "4", "6"]}>
-                  <Checkbox colorScheme="pink" />
-                </Td>
+                <Tr>
+                  <Td px={["4", "4", "6"]}>
+                    <Checkbox colorScheme="pink" />
+                  </Td>
 
-                <Td whiteSpace="nowrap">
-                  <Box>
-                    <Text fontWeight="bold">Vinicius Santos</Text>
-                    <Text fontSize="sm" color="gray.300">vinicius.santos@aztronic.com.br</Text>
-                  </Box>
-                </Td>
+                  <Td whiteSpace="nowrap">
+                    <Box>
+                      <Text fontWeight="bold">Vinicius Santos</Text>
+                      <Text fontSize="sm" color="gray.300">vinicius.santos@aztronic.com.br</Text>
+                    </Box>
+                  </Td>
 
-                {isWideVersion && <Td whiteSpace="nowrap">04 de Abril, 2021</Td>}
+                  {isWideVersion && <Td whiteSpace="nowrap">04 de Abril, 2021</Td>}
 
-                <Td>
-                  <Button
-                    as="a"
-                    size="sm"
-                    fontSize="sm"
-                    colorScheme="purple"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                    cursor="pointer"
-                  >
-                    {isWideVersion ? 'Editar' : ''}
-                  </Button>
-                </Td>
+                  <Td>
+                    <Button
+                      as="a"
+                      size="sm"
+                      fontSize="sm"
+                      colorScheme="purple"
+                      leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
+                      cursor="pointer"
+                    >
+                      {isWideVersion ? 'Editar' : ''}
+                    </Button>
+                  </Td>
+                </Tr>
               </Tbody>
             </Table>
 
