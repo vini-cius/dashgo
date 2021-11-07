@@ -3,7 +3,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { useQuery } from 'react-query';
 
-import { Box, Button, Flex, Heading, Icon, Text, Table, Thead, Tbody, Tr, Td, Th, Checkbox, useBreakpointValue, Spinner } from "@chakra-ui/react";
+import {
+  Box, Button, Flex, Heading, Icon, Text, Table, Thead, Tbody, Tr, Td, Th, Checkbox, useBreakpointValue, Spinner
+} from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
@@ -29,7 +31,7 @@ export default function UserList() {
     });
 
     return users;
-  })
+  }, { staleTime: 1000 * 5 });
 
   const isWideVersion = useBreakpointValue({
     base: false,
