@@ -52,7 +52,6 @@ export default function UserList() {
               </Link>
             </Flex>
 
-
             {isLoading ? (
               <Flex justify="center">
                 <Spinner />
@@ -108,7 +107,7 @@ export default function UserList() {
                   </Tbody>
                 </Table>
 
-                <Pagination />
+                <Pagination totalCountOfRegisters={200} currentPage={5} onChangePage={() => { }} />
               </>
             )}
 
